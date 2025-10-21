@@ -9,6 +9,7 @@ for (let i = 0; i<10;i++) {
   document.body.appendChild(a);
   a.addEventListener("click", () => {
     board[j][i].style.backgroundColor = "yellow";
+    board[j][i].innerHTML = "1";
   });
   row.push(a);
 }
