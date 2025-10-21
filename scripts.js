@@ -57,6 +57,7 @@ function click(matrix, j,i) {
     } else if (board[j][i].style.backgroundColor != "yellow") {
       for (let x = 0; x<8; x++) {
         temp = [[j,i-1],[j,i+1],[j-1,i-1],[j-1,i],[j-1,i+1],[j+1,i-1],[j+1,i],[j+1,i+1]];
+        if (0 > temp[x][0] || temp[x][0] >= rows || 0 > temp[x][1] || temp[x][1] >= cols) {continue;}
         click(board, temp[x][0],temp[x][1]);
       }
     board[j][i].style.backgroundColor = "yellow";
