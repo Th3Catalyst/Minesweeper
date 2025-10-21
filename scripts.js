@@ -40,7 +40,7 @@ for (let i = 0; i < 10; i++) {
 for (let i = 0; i<mineNum; i += 0) {
   temp = (Math.random() * 9,Math.random() * 9);
   if (!mines[temp[0]][temp[1]]) {
-    mines[temp[0][temp[1]] = True;
+    mines[temp[0]][temp[1]] = True;
     i++;
   }
 }
