@@ -71,7 +71,7 @@ for (let i = 0; i<cols;i++) {
   a.style.top=`${10+40*j}px`;
   a.style.left=`${10+40*i}px`;
   document.body.appendChild(a);
-  a.addEventListener("click", click(board,j,i);
+  a.addEventListener("click", click(board,j,i));
   row.push(a);
 }
 board.push(row);
