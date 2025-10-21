@@ -53,7 +53,7 @@ function click(matrix, j,i) {
     if (checkMines(j,i)) {
       board[j][i].style.backgroundImage = "url('image.png')";
       board[j][i].style.backgroundSize = "contain";
-    } else if numbers[j][i] != "" {
+    } else if (numbers[j][i] != "") {
       board[j][i].innerHTML = numbers[j][i];
     } else {
       for (let x = 0; x<8; x++) {
@@ -61,7 +61,7 @@ function click(matrix, j,i) {
         click(board, temp[x][0],temp[x][1]);
       }
 }
-
+board = [];
 for (let j = 0; j<rows; j++) {
   row = [];
 for (let i = 0; i<cols;i++) {
