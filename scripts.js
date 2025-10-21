@@ -55,7 +55,7 @@ function click(matrix, j,i) {
       board[j][i].style.backgroundSize = "contain";
     } else if (numbers[j][i] != "") {
       board[j][i].innerHTML = numbers[j][i];
-    } else {
+    } else if (board[j][i].style.backgroundColor != "yellow") {
       for (let x = 0; x<8; x++) {
         temp = [[j,i-1],[j,i+1],[j-1,i-1],[j-1,i],[j-1,i+1],[j+1,i-1],[j+1,i],[j+1,i+1]];
         click(board, temp[x][0],temp[x][1]);
