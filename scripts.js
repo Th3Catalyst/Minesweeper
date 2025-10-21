@@ -47,7 +47,8 @@ console.log(numbers)
 function checkMines(j,i) { 
   return mines[j][i];
 }
-function click(j,i) { 
+function click(matrix, j,i) { 
+    board = matrix;
     board[j][i].style.backgroundColor = "yellow";
     if (checkMines(j,i)) {
       board[j][i].style.backgroundImage = "url('image.png')";
@@ -57,7 +58,7 @@ function click(j,i) {
     } else {
       for (let x = 0; x<8; x++) {
         temp = [[j,i-1],[j,i+1],[j-1,i-1],[j-1,i],[j-1,i+1],[j+1,i-1],[j+1,i],[j+1,i+1]];
-        click(temp[x][0],temp[x][1]);
+        click(board, temp[x][0],temp[x][1]);
       }
 }
 
@@ -69,7 +70,7 @@ for (let i = 0; i<cols;i++) {
   a.style.top=`${10+40*j}px`;
   a.style.left=`${10+40*i}px`;
   document.body.appendChild(a);
-  a.addEventListener("click", click(j,i);
+  a.addEventListener("click", click(board,j,i);
   row.push(a);
 }
 board.push(row);
