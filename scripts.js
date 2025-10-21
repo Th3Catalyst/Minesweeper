@@ -1,5 +1,5 @@
-rows = 100;
-cols = 100;
+rows = 10;
+cols = 10;
 mineNum = 30;
 
 
