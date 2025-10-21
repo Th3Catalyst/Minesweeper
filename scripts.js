@@ -38,7 +38,7 @@ for (let j = 0; j<rows;j++) {
     g = mines[j+1][i] ? !undefined : 0;
     h = mines[j+1][i+1] ? !undefined : 0;
     } else (f=g=h=0)
-    temp.push((a+b+c+d+e+f+g+h) ? !0 : "");
+    temp.push(a+b+c+d+e+f+g+h);
   }
   numbers.push(temp);
 }
@@ -52,7 +52,7 @@ function click(matrix, j,i) {
     if (checkMines(j,i)) {
       board[j][i].style.backgroundImage = "url('image.png')";
       board[j][i].style.backgroundSize = "contain";
-    } else if (numbers[j][i] != "") {
+    } else if (numbers[j][i] > 0) {
       board[j][i].innerHTML = numbers[j][i];
     } else if (board[j][i].style.backgroundColor != "yellow") {
       for (let x = 0; x<8; x++) {
