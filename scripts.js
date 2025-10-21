@@ -1,10 +1,49 @@
-rows = 10;
-cols = 10;
+rows = 100;
+cols = 100;
 mineNum = 30;
 
 
 board = [];
 let mines = [];
+
+for (let i = 0; i < rows; i++) {
+  temp = [];
+  for (let j = 0; j < cols; j++) {
+    temp.push(false);
+  }
+  mines.push(temp);
+}
+
+for (let i = 0; i<mineNum; i += 0) {
+  temp = [Math.floor(Math.random() * (rows-1)), Math.floor(Math.random() * (cols-1))];
+  console.log(temp[1])
+  if (!mines[temp[0]][temp[1]]) {
+    mines[temp[0]][temp[1]] = true;
+    i++;
+  }
+}
+let numbers = [];
+for (let j = 0; j<rows;j++) {
+  temp = [];
+  for (let i = 0; i<cols; i++) {
+    a = mines[j][i-1] ? !undefined : 0;
+    b = mines[j][i+1] ? !undefined : 0;
+    if (j-1 >=0) {
+    c = mines[j-1][i-1] ? !undefined : 0;
+    d = mines[j-1][i] ? !undefined : 0;
+    e = mines[j-1][i+1] ? !undefined : 0;
+    } else {c=d=e=0;}
+    if (j+1<=rows-1) {
+    f = mines[j+1][i-1] ? !undefined : 0;
+    g = mines[j+1][i] ? !undefined : 0;
+    h = mines[j+1][i+1] ? !undefined : 0;
+    } else (f=g=h=0)
+    temp.push(a+b+c+d+e+f+g+h);
+  }
+  numbers.push(temp);
+}
+console.log(numbers)
+
 function checkMines(j,i) { 
   return mines[j][i];
 }
@@ -19,9 +58,10 @@ for (let i = 0; i<cols;i++) {
   a.addEventListener("click", () => {
     board[j][i].style.backgroundColor = "yellow";
     if (checkMines(j,i)) {
-      board[j][i].innerHTML = "boom";
+      board[j][i].style.backgroundImage = "url('image.png')";
+      board[j][i].style.backgroundSize = "contain";
     } else {
-      board[j][i].innerHTML = "1";
+      board[j][i].innerHTML = numbers[j][i];
     }
   });
   row.push(a);
@@ -31,19 +71,4 @@ board.push(row);
 console.log(board);
 
 
-for (let i = 0; i < 10; i++) {
-  temp = [];
-  for (let j = 0; j < 10; j++) {
-    temp.append(False);
-  }
-  mines.append(temp);
-}
-  
 
-for (let i = 0; i<mineNum; i += 0) {
-  temp = (Math.random() * 9,Math.random() * 9);
-  if (!mines[temp[0]][temp[1]]) {
-    mines[temp[0]][temp[1]] = True;
-    i++;
-  }
-}
