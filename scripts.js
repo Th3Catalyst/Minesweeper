@@ -38,7 +38,7 @@ for (let j = 0; j<rows;j++) {
     g = mines[j+1][i] ? !undefined : 0;
     h = mines[j+1][i+1] ? !undefined : 0;
     } else (f=g=h=0)
-    temp.push(a+b+c+d+e+f+g+h);
+    temp.push((a+b+c+d+e+f+g+h) ? !0 : "");
   }
   numbers.push(temp);
 }
@@ -47,6 +47,20 @@ console.log(numbers)
 function checkMines(j,i) { 
   return mines[j][i];
 }
+function click(j,i) { 
+    board[j][i].style.backgroundColor = "yellow";
+    if (checkMines(j,i)) {
+      board[j][i].style.backgroundImage = "url('image.png')";
+      board[j][i].style.backgroundSize = "contain";
+    } else if numbers[j][i] != "" {
+      board[j][i].innerHTML = numbers[j][i];
+    } else {
+      for (let x = 0; x<8; x++) {
+        temp = [[j,i-1],[j,i+1],[j-1,i-1],[j-1,i],[j-1,i+1],[j+1,i-1],[j+1,i],[j+1,i+1]];
+        click(temp[x][0],temp[x][1]);
+      }
+}
+
 for (let j = 0; j<rows; j++) {
   row = [];
 for (let i = 0; i<cols;i++) {
@@ -55,15 +69,7 @@ for (let i = 0; i<cols;i++) {
   a.style.top=`${10+40*j}px`;
   a.style.left=`${10+40*i}px`;
   document.body.appendChild(a);
-  a.addEventListener("click", () => {
-    board[j][i].style.backgroundColor = "yellow";
-    if (checkMines(j,i)) {
-      board[j][i].style.backgroundImage = "url('image.png')";
-      board[j][i].style.backgroundSize = "contain";
-    } else {
-      board[j][i].innerHTML = numbers[j][i];
-    }
-  });
+  a.addEventListener("click", click(j,i);
   row.push(a);
 }
 board.push(row);
