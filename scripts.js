@@ -60,8 +60,8 @@ function click(matrix, j,i) {
         //if (0 > temp[x][0] || temp[x][0] >= rows || 0 > temp[x][1] || temp[x][1] >= cols) {continue;}
         click(board, temp[x][0],temp[x][1]);
       }
-    board[j][i].style.backgroundColor = "yellow";
     }
+    board[j][i].style.backgroundColor = "yellow";
 }
 board = [];
 for (let j = 0; j<rows; j++) {
