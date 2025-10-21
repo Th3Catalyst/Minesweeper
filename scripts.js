@@ -49,7 +49,6 @@ function checkMines(j,i) {
 }
 function click(matrix, j,i) { 
     board = matrix;
-    board[j][i].style.backgroundColor = "yellow";
     if (checkMines(j,i)) {
       board[j][i].style.backgroundImage = "url('image.png')";
       board[j][i].style.backgroundSize = "contain";
@@ -60,6 +59,7 @@ function click(matrix, j,i) {
         temp = [[j,i-1],[j,i+1],[j-1,i-1],[j-1,i],[j-1,i+1],[j+1,i-1],[j+1,i],[j+1,i+1]];
         click(board, temp[x][0],temp[x][1]);
       }
+    board[j][i].style.backgroundColor = "yellow";
     }
 }
 board = [];
