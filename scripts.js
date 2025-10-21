@@ -4,6 +4,7 @@ mineNum = 30;
 
 
 board = [];
+let mines = [];
 for (let j = 0; j<rows; j++) {
   row = [];
 for (let i = 0; i<cols;i++) {
@@ -26,7 +27,7 @@ board.push(row);
 }
 console.log(board);
 
-let mines = [];
+
 for (let i = 0; i < 10; i++) {
   temp = [];
   for (let j = 0; j < 10; j++) {
