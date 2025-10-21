@@ -5,6 +5,9 @@ mineNum = 30;
 
 board = [];
 let mines = [];
+function checkMines(j,i) { 
+  return mines[j][i];
+}
 for (let j = 0; j<rows; j++) {
   row = [];
 for (let i = 0; i<cols;i++) {
@@ -15,7 +18,7 @@ for (let i = 0; i<cols;i++) {
   document.body.appendChild(a);
   a.addEventListener("click", () => {
     board[j][i].style.backgroundColor = "yellow";
-    if (mines[j][i]) {
+    if (checkMines(j,i)) {
       board[j][i].innerHTML = "boom";
     } else {
       board[j][i].innerHTML = "1";
