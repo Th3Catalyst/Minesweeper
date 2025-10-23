@@ -1,6 +1,6 @@
-rows = 10;
-cols = 10;
-mineNum = 30;
+rows = 500;
+cols = 500;
+mineNum = 500*500 - 500*400;
 
 
 board = [];
@@ -13,7 +13,6 @@ for (let i = 0; i < rows; i++) {
   }
   mines.push(temp);
 }
-
 for (let i = 0; i<mineNum; i += 0) {
   temp = [Math.floor(Math.random() * (rows-1)), Math.floor(Math.random() * (cols-1))];
   console.log(temp[1])
@@ -55,6 +54,7 @@ function click(matrix, j,i) {
     } else if (numbers[j][i] > 0) {
       board[j][i].innerHTML = numbers[j][i];
     } else if (board[j][i].style.backgroundColor != "yellow") {
+      board[j][i].style.backgroundColor = "yellow";
       for (let x = 0; x<8; x++) {
         temp = [[j,i-1],[j,i+1],[j-1,i-1],[j-1,i],[j-1,i+1],[j+1,i-1],[j+1,i],[j+1,i+1]];
         if (0 > temp[x][0] || temp[x][0] >= rows || 0 > temp[x][1] || temp[x][1] >= cols) {continue;}
