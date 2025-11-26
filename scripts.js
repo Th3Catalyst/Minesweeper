@@ -1,6 +1,6 @@
-rows = 500;
-cols = 500;
-mineNum = 500*500 - 500*400;
+rows = 50;
+cols = 50;
+mineNum = 50*50 - 50*40;
 
 
 board = [];
